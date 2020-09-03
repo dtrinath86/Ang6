@@ -1,0 +1,177 @@
+
+<div class="container">
+<div class="row">
+  <div class="col-12">
+    <h1 class="bg-rimary">{{myfullname()}}</h1>
+  </div>
+  <div class="col-12 mb-4">
+    <div class="card-deck">
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="col-12">
+  <div class="card">
+    <div class="card-header">ngClass, ngStyle</div>
+    <div class="card-body">      
+      <button [ngClass]="'btn color-red bg-black italicfont'">ngClass</button>
+      <button [ngClass]="ngclassmultiple">ngClass - multiple class using true - false (multipleclass object)</button>
+      <button [ngStyle]="{
+        'color':'red',
+        'text-decoration':'underline',
+        'border':'0px',
+        'background':'none',
+        'margin-left':'20px'
+      }">ng inline styele</button>
+      <button [ngStyle]="multiplengStyele">ngStyle - using ngStyle object</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-12 mb-4">
+  <div class="card">
+    <div class="card-header bg-primary text-white">Pipe in Angular</div>
+    <div class="card-body">      
+      <p>My name is {{biodata.name | uppercase }}. I was born in {{biodata.born | date}}. My Designation is {{biodata.desig}}. My salary expectation is {{biodata.slry | number: '3.2'}}. </p>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="col-12 mb-4">
+  <div class="card">
+    <div class="card-header bg-info text-white">Two Way data binding</div>
+    <div class="card-body"><input class="form-control" [(ngModel)]="email3" (click)=getEmail3()></div>
+  </div>
+</div>
+
+<div class="col-12">
+  <div class="card">
+    <div class="card-header bg-default">Templates reference variable, Data can see console.log</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <input class="form-control" type="text" name="" (click)="getEmail($event)">
+        </div>
+        <div class="col">
+          <input class="form-control" type="text" name="" #email>
+        </div>
+        <div class="col">
+          <button class="btn btn-primary" (click)="getEmail2(email.value)">Click Here</button>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-12 mb-4">
+  <div class="card">
+    <div class="card-header bg-success text-white">Style Binding</div>
+    <div class=card-body>
+      <div class="row">
+        <div class="col">
+          <button [style.color]="coloreChange">Style Binding using "changing - color"</button>
+        </div>
+        <div class="col">
+          <button [style.color]="colorChange2 ? 'red' : 'green'">Style Binding using ternery operator</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-12 mb-4">
+  <div class="card">
+    <div class="card-header bg-primary text-white">Css Class Binding</div>
+    <div class="card-body">
+      <button class="btn btn-primary" [class]="multipleclassChange">Multiple class Binding</button>
+      <button class="btn btn-primary ml-2" [class.singleClass]="singleclassTruefalse">Single Classbinding Using true or false</button>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="col-12 mb-4"> 
+  <div class="card">
+    <div class="card-header bg-primary text-white">Event Binding  (4 Type of binding -String interpolation, Property, Event, two way data binding)</div>
+    <div class="card-body">
+      <div class="row">
+      <div class="col-2"><button class="btn btn-primary" (click)="evntbndClick()">Evnet Binding</button></div>
+      <div class="col-8"><input type="text" [value]="evntbndTxt" class="form-control" /></div>
+      <div class="col-2"><button class="btn btn-primary" (click)="evntClick($event)" value="Tirnath">Evnet Data Click</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-12 mb-4">
+  <div class="card">
+    <div class="card-header">Class Binding</div>
+    <div class="card-body">
+      <button class="btn btn-primary" [class.active]="isActive">Class binding - adding active class</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-12 mb-4"> 
+  <div class="card">
+    <div class="card-header">Property Binding, Interpolation, Canonical expression </div>
+    <div class="card-body">    
+      <div class="col mb-2"><input type="text" value="{{textpropname}}" class="form-control" /></div>
+      <div class="col"><button class="btn btn-primary" [hidden]="isHidden">Prooerty Binding</button>
+      <button class="btn btn-primary ml-2" [disabled]="isDisable">Disable</button>
+      <button class="btn btn-primary ml-2" bind-disabled="isDisable">Canonical expression</button>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-12 mb-4">
+  <div class="card">
+    <div class="card-header">User Registration Form -- Creating Component</div>
+    <div class="card-body">
+      <app-newregform></app-newregform>
+    </div>
+  </div>  
+</div>
+
+
+
+
+
+</div>
+</div>
